@@ -30,7 +30,11 @@
                             </li>
                         @else
                             <li class="header-nav__item">
-                                <button class="header-nav__button" href="/login">login</button>
+                                @if (request()->is('login'))
+                                    <a class="header-nav__button" href="/register">Register</a> <!-- ログインページでは Register を表示 -->
+                                @else
+                                    <a class="header-nav__button" href="/login">Login</a> <!-- それ以外のページでは Login を表示 -->
+                                @endif
                             </li>
                         @endif
                     </ul>
