@@ -20,20 +20,24 @@
                     <ul class="header-nav">
                         @if (Auth::check())
                             <li class="header-nav__item">
-                                <a class="header-nav__link" href="/mypage">マイページ</a>
-                            </li>
-                            <li class="header-nav__item">
-                                <form class="form" action="/logout" method="post">
-                                    @csrf
-                                    <button class="header-nav__button">ログアウト</button>
-                                </form>
+                                @if (request()->is('admin*')) <!-- 管理画面の場合 -->
+                                    <form class="form" action="/logout" method="post">
+                                        @csrf
+                                        <button class="header-nav__button">ログアウト</button>
+                                    </form>
+                                @else
+                                    <form class="form" action="/logout" method="post">
+                                        @csrf
+                                        <button class="header-nav__button">ログアウト</button>
+                                    </form>
+                                @endif
                             </li>
                         @else
                             <li class="header-nav__item">
                                 @if (request()->is('login'))
-                                    <a class="header-nav__button" href="/register">Register</a> <!-- ログインページでは Register を表示 -->
+                                    <a class="header-nav__button" href="/register">register</a>
                                 @else
-                                    <a class="header-nav__button" href="/login">Login</a> <!-- それ以外のページでは Login を表示 -->
+                                    <a class="header-nav__button" href="/login">Login</a>
                                 @endif
                             </li>
                         @endif
