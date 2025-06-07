@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>管理画面</h2>
+<h2>Admin</h2>
 
 <!-- 検索フォーム -->
 <form action="{{ route('admin.search') }}" method="GET">
@@ -20,7 +20,7 @@
         <option value="trouble">商品トラブル</option>
         <option value="shop">ショップへのお問い合わせ</option>
         <option value="other">その他</option>
-    </select>    
+    </select>
     <input type="date" name="date">
     <button type="submit">検索</button>
     <button type="reset">リセット</button>
@@ -31,7 +31,7 @@
 <table>
     <tr>
         <th>お名前</th>
-        <th>性別</th>        
+        <th>性別</th>
         <th>メールアドレス</th>
         <th>お問い合わせの種類</th>
         <th>日付</th>
